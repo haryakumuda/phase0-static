@@ -1,0 +1,27 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
+
+body {
+  font-family: "Roboto";
+
+  .inner-row {
+    height: 100vh;
+  }
+
+  .form-box {
+    background-color: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  .registration-form {
+    display: none;
+  }
+  .login-form {
+    display: show;
+  }
+
+  /* INDEX */
+
+  .navbar-brand-logo {
+    max-height: 50px; /* Adjust the max-height as per your design */
+    /* You can also use width: auto; to maintain aspect ratio */
+  }
+}
