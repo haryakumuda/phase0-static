@@ -10,3 +10,31 @@
   width: 50%;
   height: auto;
 }
+
+.no-scroll {
+  overflow-x: hidden;
+}
+
+.img-product {
+  width: 75%;
+  transition: 0.5s;
+}
+
+.img-product:hover {
+  width: 85%;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.link-without-underline {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar-brand-logo {
+  max-height: 50px; /* Adjust the max-height as per your design */
+  /* You can also use width: auto; to maintain aspect ratio */
+}
