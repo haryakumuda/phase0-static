@@ -24,4 +24,10 @@ body {
     max-height: 50px; /* Adjust the max-height as per your design */
     /* You can also use width: auto; to maintain aspect ratio */
   }
+
+  .link-without-underline {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
