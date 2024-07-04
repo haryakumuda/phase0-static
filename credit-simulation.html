@@ -13,7 +13,7 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./credit-simulation-style.css" />
+    <link rel="stylesheet" href="credit-simulation-style.css" />
     <link rel="icon" href="assets/logo.png" />
   </head>
   <body class="bg-light">
@@ -80,7 +80,9 @@
             <div class="form-group">
               <label for="price">Price of Cars:</label>
               <input
+                class="form-control"
                 type="text"
+                placeholder="Rp. 0"
                 id="price"
                 required
                 oninput="formatPriceInput()" />
@@ -88,6 +90,7 @@
             <div class="form-group">
               <label for="down-payment">Down Payment:</label>
               <select
+                class="form-control"
                 name="down-payment"
                 id="down-payment"
                 onchange="updateDownPaymentPrice()">
@@ -97,13 +100,17 @@
                 <option value="0.3">30%</option>
               </select>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-2">
               <label for="down-payment-price"></label>
-              <input type="text" id="down-payment-price" disabled />
+              <input
+                type="text"
+                class="form-control"
+                id="down-payment-price"
+                disabled />
             </div>
-            <div class="form-group">
+            <div class="form-group mt-2">
               <label for="assurance">Assurance Type:</label>
-              <select name="assurance" id="assurance">
+              <select class="form-control" name="assurance" id="assurance">
                 <option value="0.15">comprehensive</option>
                 <option value="0.10">Total Loss Only</option>
                 <option value="0.20">All Risk</option>
@@ -111,13 +118,13 @@
             </div>
             <button
               id="calculate"
-              class="btn btn-primary"
+              class="btn btn-primary mt-3 form-control"
               onclick="calculatePayment()">
               Calculate
             </button>
             <div class="result">
               <table
-                class="table table-hover table-striped table-primary"
+                class="table table-hover table-striped table-primary mt-3"
                 id="result">
                 <thead>
                   <tr>

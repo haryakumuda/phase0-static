@@ -1,3 +1,4 @@
+//  Menampilkan alert ketika klik subscribed di index.html
 function showSubscribedMessage(event) {
   event.preventDefault();
   alert("Subscribed!");
@@ -7,23 +8,23 @@ let lastValidPrice = ""; // Store the last valid price
 
 function formatPriceInput() {
   const priceInput = document.getElementById("price");
-  let priceValue = priceInput.value.replace(/[Rp.,\s]/g, "");
+  let priceValue = priceInput.value.replace(/[Rp.,\s]/g, ""); // Mengambil data angka, menghilangkan Rp. , dan spasi \g artinya untuk semua karakter, kalau tanpa g cuma karakter pertama yang ketemu aja yang diganti
 
   if (priceValue === "") {
     priceInput.value = "Rp 0";
     lastValidPrice = ""; // Reset last valid price
   } else if (!isNaN(priceValue) && priceValue !== "") {
     lastValidPrice = priceValue; // Update the last valid price
-    priceValue = parseFloat(priceValue)
-      .toLocaleString("en-US")
-      .replace(/,/g, ".");
+    priceValue = parseFloat(priceValue).toLocaleString("id-ID");
+    // .replace(/,/g, ".")
     priceInput.value = `Rp ${priceValue}`;
   } else {
     // Restore the last valid price if the input is not a number
     if (lastValidPrice !== "") {
-      priceInput.value = `Rp ${parseFloat(lastValidPrice)
-        .toLocaleString("en-US")
-        .replace(/,/g, ".")}`;
+      priceInput.value = `Rp ${
+        parseFloat(lastValidPrice).toLocaleString("id-ID")
+        // .replace(/,/g, ".")
+      }`;
     } else {
       priceInput.value = "Rp 0";
     }
@@ -32,6 +33,7 @@ function formatPriceInput() {
   updateDownPaymentPrice();
 }
 
+// dipanggil setiap dp diubah (berpa persen) dan price diubah
 function updateDownPaymentPrice() {
   const priceInput = document.getElementById("price").value;
   const price = parseFloat(priceInput.replace(/[Rp.,\s]/g, "")) || 0;
@@ -40,18 +42,16 @@ function updateDownPaymentPrice() {
   );
   const downPaymentPrice = price * downPaymentPercent;
 
-  const formattedDownPaymentPrice = downPaymentPrice
-    .toLocaleString("en-US", {
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    })
-    .replace(/,/g, ".");
-
+  const formattedDownPaymentPrice = downPaymentPrice.toLocaleString("id-ID", {
+    minimumFractionDigits: 0, // agar tidak ada koma
+    maximumFractionDigits: 0, // agar tidak ada koma
+  });
   document.getElementById(
     "down-payment-price"
   ).value = `Rp ${formattedDownPaymentPrice}`;
 }
 
+// Dipanggil ketika klik calcukate
 function calculatePayment() {
   const priceInput = document.getElementById("price").value;
   const price = parseFloat(priceInput.replace(/[Rp.,\s]/g, "")) || 0;
@@ -77,6 +77,7 @@ function calculatePayment() {
   showTenor(duration, installment);
 }
 
+// Dipanggil ketika klik calculate
 function showTenor(duration, installment) {
   const resultBody = document
     .getElementById("result")
@@ -98,7 +99,6 @@ function showTenor(duration, installment) {
     installmentCell.textContent = `Rp ${formattedInstallment}`;
     row.appendChild(installmentCell);
 
-    resultBody.appendChild(row);
-    document.getElementById("result").style.display = "show";
+    resultBody.appendChild(row); //HELLO
   }
 }
